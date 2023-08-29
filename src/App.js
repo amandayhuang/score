@@ -9,12 +9,16 @@ import ActorContainer from "./ActorContainer";
 import PlayerContainer from "./PlayerContainer";
 import { HashRouter, Route, Switch, Link } from "react-router-dom";
 import Home from "./Home";
+import Score from "./javascript/components/Home";
 
 const App = () => {
   return (
     <EasybaseProvider ebconfig={ebconfig}>
       <HashRouter>
         <Switch>
+          <Route path="/mj">
+            <Score />
+          </Route>
           <Route path="/height">
             <HeightContainer />
           </Route>
