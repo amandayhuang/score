@@ -38,7 +38,7 @@ const App = () => {
             <PlayerContainer />
           </Route>
           <Route path="/">
-            <Home />
+            <Score />
           </Route>
         </Switch>
       </HashRouter>
