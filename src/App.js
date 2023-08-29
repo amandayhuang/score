@@ -1,4 +1,15 @@
 import React from "react";
-import Routes from "./javascript/routes/Index";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./javascript/components/Home";
 
-export default (props) => <>{Routes}</>;
+const App = () => {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Home} />
+      </Switch>
+    </Router>
+  );
+};
+
+export default App;
