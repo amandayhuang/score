@@ -7,6 +7,7 @@ import IsolatedMenu from "./Menu";
 import Check from "./Checkbox";
 import Dropdown from "./Dropdown";
 import LineItemDialog from "./LineItemDialog";
+import { calculateScore } from "../../calc";
 
 const Home = () => {
   const [myTiles, setMyTiles] = useState([]);
@@ -63,7 +64,7 @@ const Home = () => {
   const scoreHandler = async (event) => {
     event.preventDefault();
     setLoading(true);
-    // const { roundWind, myWind, winner, wall, shot, eyes } = vals
+    const { roundWind, myWind, winner, wall, shot, eyes } = vals;
     // let ip = ''
 
     // try {
@@ -87,7 +88,20 @@ const Home = () => {
     // })
     // setScore(score.data.value)
     // setLineItems(score.data.line_items)
-    console.log("SCORING", vals, sortedTiles);
+
+    const [returnScore, items] = calculateScore(
+      sortedTiles,
+      roundWind,
+      myWind,
+      winner,
+      wall,
+      shot,
+      eyes
+    );
+    // console.log("SCORING", vals, sortedTiles);
+    // console.log("RESULT", returnScore, items);
+    setScore(returnScore);
+    setLineItems(items);
     setLoading(false);
   };
 
